@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.Set;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -150,10 +151,10 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 		PreparedStatement preparedStatement = null;
 
 		ArrayList<ProdottoBean> products = new ArrayList<ProdottoBean>();
-
-		String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME;
-
-		if (order != null && !order.equals("")) {
+		String tableName = ProdottoDao.TABLE_NAME;
+		String selectSQL = "SELECT * FROM tableName";
+		Set<String> validColumns = Set.of("ID_PRODOTTO", "NOME", "PREZZO", "PIATTAFORMA", "DATA_USCITA", "GENERE");
+		if (order != null && validColumns.contains(order)) {
 			selectSQL += " ORDER BY " + order;
 		}
 
