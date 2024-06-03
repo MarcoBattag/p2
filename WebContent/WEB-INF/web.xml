@@ -12,4 +12,8 @@
   <servlet>
   	<servlet-name>PageHandler</servlet-name>
   </servlet>
+<error-page>
+    <error-code>500</error-code>
+    <location>/Error500.jsp</location>
+</error-page>
 </web-app>
